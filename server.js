@@ -8,6 +8,8 @@ const ejs = require('ejs');
 const app = new express();
 const port = process.env.PORT;
 
+const authRoute = require('./routes/user/userRoute');
+
 const corsOption = {
     origin: '*',
     optionSuccessStatus: 200,
@@ -22,10 +24,11 @@ app.use(bodyParser.urlencoded({ urlencoded: false }));
 app.use(express.json());
 app.use(cors(corsOption));
 
+app.use('/api/v1', authRoute);
+
 
 app.get('/', (req, res) => {
     res.status(200).send("Welcome to Webnart-Endpoints where every APi see you -_- ");
 });
 
 app.listen(port, console.log("server is started"));
-
