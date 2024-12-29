@@ -27,6 +27,5 @@ app.get('/', (req, res) => {
     res.status(200).send("Welcome to Webnart-Endpoints where every APi see you -_- ");
 });
 
-
 app.listen(port, console.log("server is started"));
 
