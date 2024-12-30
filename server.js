@@ -26,7 +26,6 @@ app.use(cors(corsOption));
 
 app.use('/api/v1', authRoute);
 
-
 app.get('/', (req, res) => {
     res.status(200).send("Welcome to Webnart-Endpoints where every APi see you -_- ");
 });

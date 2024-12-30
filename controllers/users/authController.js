@@ -75,7 +75,7 @@ const signUp = async (req, res) => {
         })
     }).catch((err) => {
         console.log(err);
-        return res.status(200).json({
+        return res.status(409).json({
             "status": 409,
             "data": null,
             "message": "Email already exists.",
