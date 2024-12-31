@@ -1,4 +1,3 @@
-
 require('dotenv').config({ path: './config/dev.env' })
 
 const express = require('express');
@@ -8,7 +7,9 @@ const ejs = require('ejs');
 const app = new express();
 const port = process.env.PORT;
 
-const authRoute = require('./routes/user/userRoute');
+const userRoute = require('./routes/user/userRoute');
+const authRoute = require('./routes/user/AuthRoute');
+
 
 const corsOption = {
     origin: '*',
@@ -24,6 +25,7 @@ app.use(bodyParser.urlencoded({ urlencoded: false }));
 app.use(express.json());
 app.use(cors(corsOption));
 
+app.use('/api/v1', userRoute);
 app.use('/api/v1', authRoute);
 
 app.get('/', (req, res) => {
