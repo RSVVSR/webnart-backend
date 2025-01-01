@@ -25,8 +25,9 @@ app.use(bodyParser.urlencoded({ urlencoded: false }));
 app.use(express.json());
 app.use(cors(corsOption));
 
-app.use('/api/v1', userRoute);
-app.use('/api/v1', authRoute);
+app.use('/api/v1/user', userRoute);
+app.use('/api/v1/auth', authRoute);
+
 
 app.get('/', (req, res) => {
     res.status(200).send("Welcome to Webnart-Endpoints where every APi see you -_- ");

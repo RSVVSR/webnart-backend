@@ -2,15 +2,6 @@ const { db } = require('../../../database/databaseConnection');
 const { handleError } = require('../../../config/Errorhandler');
 
 const updateUserKeys = async (req, res) => {
-    const { body } = req.body;
-    if (body?.user_id === undefined) {
-        return handleError(res, "user_id key is required", null, 400);
-    };
-
-    if (body?.key === undefined) {
-        return handleError(res, "key is required", null, 400);
-    };
-
     let updateFields = [];
     for (const key in req.body) {
         updateFields.push(`${key} = '${req.body[key]}'`);
