@@ -9,6 +9,7 @@ const port = process.env.PORT;
 
 const userRoute = require('./routes/user/userRoute');
 const authRoute = require('./routes/user/AuthRoute');
+const artRoute = require('./routes/art/artRoutes');
 
 
 const corsOption = {
@@ -27,6 +28,7 @@ app.use(cors(corsOption));
 
 app.use('/api/v1/user', userRoute);
 app.use('/api/v1/auth', authRoute);
+app.use('/api/v1/art', artRoute);
 
 
 app.get('/', (req, res) => {
